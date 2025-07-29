@@ -1,7 +1,9 @@
 package com.example.board.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "member")
 public class Member extends BaseEntity {
@@ -17,4 +19,16 @@ public class Member extends BaseEntity {
 
     private Integer age;
 
+    public Member() {
+    }
+
+    public Member(String username, String password, Integer age) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
+    }
 }
